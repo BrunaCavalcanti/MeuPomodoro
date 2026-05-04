@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍅 Timer!</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<!-- ============================================================
+     HTML
+     Estrutura: #pom-app > toast · header · topic-bar · #p-content
+     O conteúdo de #p-content é renderizado dinamicamente via JS.
+============================================================ -->
+<body>
+<div id="pom-app">
+
+  <div class="p-toast" id="p-toast"></div>
+
+  <div class="p-header">
+    <div class="p-logo">🍅 Pomodoro | Método de foco!</div>
+    <div class="p-nav">
+      <button class="p-ntab on" data-tab="timer"   onclick="switchTab('timer')"  >⏱ Timer</button>
+      <button class="p-ntab"    data-tab="stats"   onclick="switchTab('stats')"  >📊 Análises</button>
+      <button class="p-ntab"    data-tab="history" onclick="switchTab('history')">📋 Histórico</button>
+    </div>
+  </div>
+
+  <div class="p-topic-bar">
+    <span class="p-topic-icon">🎯</span>
+    <span class="p-topic-label">Tópico do dia</span>
+    <div class="p-topic-divider"></div>
+    <input class="p-topic-input" id="p-topic-inp"
+      placeholder="O que você vai focar hoje?" maxlength="120"
+      oninput="saveTopic(this.value)">
+    <button class="p-topic-save" id="p-topic-save-btn" onclick="saveTopicBtn()">💾 Salvar</button>
+  </div>
+
+  <div id="p-content"></div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
